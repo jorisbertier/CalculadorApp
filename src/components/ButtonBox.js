@@ -15,13 +15,32 @@ function ButtonBox({onValue}) {
         onValue(btn);
     };
 
+    const getButtonClassName = (btn) => {
+        switch (btn) {
+            case '=':
+                return 'equals';
+            case '+':
+                return 'more';
+            case '-':
+                return 'more'
+            case '/':
+                return 'more'
+            case 'X':
+                return 'more'
+            case 'C':
+                return 'c'
+            default:
+                return "";
+        }
+    }
+
     return <div className="buttonBox">
           {
           buttonValue.flat().map((btn, i) => {
             return (
               <Button
                 key={i}
-                className={btn === "=" ? "equals" : ""}
+                className={getButtonClassName(btn)}
                 value={btn}
                 onClick={() => value(btn)}
                 

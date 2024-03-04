@@ -10,10 +10,15 @@ function Screen({onValue}) {
         if(onValue === 'C'){
             setDisplayValue('');
         }
+        if(onValue === '=') {
+            
+        }
     }, [onValue])
+    
 
+    
     return <div className="screen">
-       {displayValue}
+        {displayValue}
     </div>
 }
 
