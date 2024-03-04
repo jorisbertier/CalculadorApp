@@ -4,8 +4,8 @@ import Button from './Button';
 function ButtonBox({onValue}) {
 
     const buttonValue = [
-        ["C", "+-", "%", "/"],
-        [7, 8, 9, "X"],
+        ["C", "DE", "%", "/"],
+        [7, 8, 9, "*"],
         [4, 5, 6, "-"],
         [1, 2, 3, "+"],
         [0, ".", "="],
@@ -25,7 +25,7 @@ function ButtonBox({onValue}) {
                 return 'more'
             case '/':
                 return 'more'
-            case 'X':
+            case '*':
                 return 'more'
             case 'C':
                 return 'c'
@@ -35,7 +35,7 @@ function ButtonBox({onValue}) {
     }
 
     return <div className="buttonBox">
-          {
+        {
           buttonValue.flat().map((btn, i) => {
             return (
               <Button

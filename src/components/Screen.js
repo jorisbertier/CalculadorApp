@@ -6,12 +6,15 @@ function Screen({onValue}) {
     const [displayValue, setDisplayValue] = useState('')
 
     useEffect(() => {
-        setDisplayValue(prevValue => prevValue + onValue)
+        setDisplayValue(prevValue => prevValue + onValue) 
         if(onValue === 'C'){
             setDisplayValue('');
         }
+        if(onValue === 'DE') {
+            setDisplayValue(displayValue.slice(0, -1))
+        }
         if(onValue === '=') {
-            
+            setDisplayValue(eval(displayValue))
         }
     }, [onValue])
     
