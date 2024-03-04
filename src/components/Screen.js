@@ -1,7 +1,20 @@
 import '../styles/Screen.css'
+import { useState, useEffect } from 'react';
 
-function Screen() {
-    return <div className="screen"></div>
+function Screen({onValue}) {
+
+    const [displayValue, setDisplayValue] = useState('')
+
+    useEffect(() => {
+        setDisplayValue(prevValue => prevValue + onValue)
+        if(onValue === 'C'){
+            setDisplayValue('');
+        }
+    }, [onValue])
+
+    return <div className="screen">
+       {displayValue}
+    </div>
 }
 
-export default Screen
+export default Screen;

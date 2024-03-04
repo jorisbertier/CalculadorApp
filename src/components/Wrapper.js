@@ -1,13 +1,22 @@
 import '../styles/wrapper.css'
 import Screen from './Screen';
 import ButtonBox from './ButtonBox';
+import { useState } from 'react';
 
 
 const Wrapper = () => {
-    return (<div className='wrapper'>
-        <Screen />
-        <ButtonBox>
-        </ButtonBox>
+
+    const [displayValue, setDisplayValue] = useState('');
+
+    function handleValue(btn) {
+        console.log(btn)
+        setDisplayValue(btn)
+    } 
+
+    return (
+    <div className='wrapper'>
+        <Screen onValue={displayValue}/>
+        <ButtonBox onValue={handleValue}/>
     </div>
 )}
 

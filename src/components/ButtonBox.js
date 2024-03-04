@@ -1,7 +1,7 @@
 import '../styles/ButtonBox.css'
 import Button from './Button';
 
-function ButtonBox() {
+function ButtonBox({onValue}) {
 
     const buttonValue = [
         ["C", "+-", "%", "/"],
@@ -11,6 +11,10 @@ function ButtonBox() {
         [0, ".", "="],
     ]
 
+    const value = (btn) => {
+        onValue(btn);
+    };
+
     return <div className="buttonBox">
           {
           buttonValue.flat().map((btn, i) => {
@@ -19,6 +23,7 @@ function ButtonBox() {
                 key={i}
                 className={btn === "=" ? "equals" : ""}
                 value={btn}
+                onClick={() => value(btn)}
                 
               />
             );
