@@ -3,9 +3,11 @@ import Wrapper from './Wrapper';
 
 function App() {
   return (
+    <div>
     <Wrapper>
-
     </Wrapper>
+      </div>
+    
   );
 }
 
