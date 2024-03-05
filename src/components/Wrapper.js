@@ -9,7 +9,7 @@ const Wrapper = () => {
     const [displayValue, setDisplayValue] = useState('');
 
     function handleValue(btn) {
-        console.log(btn)
+        
         setDisplayValue(btn)
     } 
 

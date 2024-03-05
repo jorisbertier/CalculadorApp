@@ -6,15 +6,22 @@ function Screen({onValue}) {
     const [displayValue, setDisplayValue] = useState('')
 
     useEffect(() => {
-        setDisplayValue(prevValue => prevValue + onValue) 
-        if(onValue === 'C'){
+        if (onValue === 'C') {
             setDisplayValue('');
-        }
-        if(onValue === 'DE') {
-            setDisplayValue(displayValue.slice(0, -1))
-        }
-        if(onValue === '=') {
-            setDisplayValue(eval(displayValue))
+        } else if (onValue === 'DE') {
+            setDisplayValue(prevValue => prevValue.slice(0, -1));
+        } else if (onValue === '=') {
+            try {
+                setDisplayValue(prevValue => eval(prevValue));
+            } catch (error) {
+                setDisplayValue('');
+                console.log('oooi')
+            }
+        } else {
+            setDisplayValue(prevValue => prevValue + onValue);
+            if(onValue === 8) {
+                console.log('test')
+            }
         }
     }, [onValue])
     
